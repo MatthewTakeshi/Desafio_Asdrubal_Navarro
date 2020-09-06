@@ -1,0 +1,52 @@
+@page "/Formulario"
+
+<h1>Formulário de Cadastro</h1>
+
+<p>Cadastro</p>
+<EditForm Model="@Formulario" OnValidSubmit="@Create">
+    <DataAnnotationsValidator/>
+    <div class="form-group">
+        <label>Title</label>
+        <div>
+            <InputSelect @bind-Value="@Formulario.Sr_Sra">
+                <option value="Selecione o Titulo">Selecione o Titulo</option>
+                <option value="Senhor">Senhor</option>
+                <option value="Senhora">Senhora</option>
+            </InputSelect>
+        </div>
+        <label>Primeiro Nome:</label>
+        <div>
+            <InputText placeholder="Digite o Primeiro Nome"class="form-control" @bind-Value="@Formulario.First_Name" />
+            <ValidationMessage For="@(() => Formulario.First_Name )"/>
+        </div>
+        <label>Sobrenome:</label>
+        <div>
+            <InputText placeholder="Digite o Sobrenome"class="form-control" @bind-Value="@Formulario.Last_Name" />
+            <ValidationMessage For="@(() => Formulario.Last_Name )"/>
+        </div>
+        <label>Data de Nascimento:</label>
+        <div>
+            <InputDate placeholder="Digite a Data de Nascimento"class="form-control" @bind-Value="@Formulario.Data_Nascimento" />
+            <ValidationMessage For="@(() => Formulario.Data_Nascimento )"/>
+        </div>
+        <label>Email:</label>
+        <div>
+            <InputText placeholder="Digite E-mail"class="form-control" @bind-Value="@Formulario.Email" />
+            <ValidationMessage For="@(() => Formulario.Email )"/>
+        </div>
+    </div>
+    <button class="btn btn-success" type="submit">Salvar</button>
+</EditForm>
+
+@code{
+
+    Cadastro Formulario = new Cadastro();
+    
+    public void Create(){
+        Console.WriteLine(Formulario.Sr_Sra);
+        Console.WriteLine(Formulario.First_Name);
+        Console.WriteLine(Formulario.Last_Name);
+        Console.WriteLine(Formulario.Data_Nascimento);
+        Console.WriteLine(Formulario.Email);
+    }
+}
