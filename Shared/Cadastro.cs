@@ -18,6 +18,19 @@ namespace Desafio_Asdrubal.Shared
         public DateTime Data_Nascimento { get; set; }
 
         [Required(ErrorMessage = "E-mail é obrigatório")]
+        [EmailAddress]
         public string Email {get; set; }
+
+        [Required(ErrorMessage = "Senha é obrigatório")]
+        [MinLength(6, ErrorMessage = "Senha precisa ter ao menos 6 caractéres")]
+        public string Senha{get; set; }
+
+        [Required(ErrorMessage = "Confirmar Senha é obrigatório")]
+        [Compare("Senha", ErrorMessage = "As senhas não coincidem")]
+        public string ConfirmarSenha{get; set; }
+        
+        [Required]
+        [Range(typeof(bool), "true","true", ErrorMessage = "Aceitar os termos é obrigatório")]
+        public bool AceitarTermos {get; set; }
     }
 }

@@ -34,6 +34,22 @@
             <InputText placeholder="Digite E-mail"class="form-control" @bind-Value="@Formulario.Email" />
             <ValidationMessage For="@(() => Formulario.Email )"/>
         </div>
+        <label>Senha:</label>
+        <div>
+            <InputText placeholder="Digite uma Senha"class="form-control" @bind-Value="@Formulario.Senha" type ="password" />
+            <ValidationMessage For="@(() => Formulario.Senha )"/>
+        </div>
+        <label>Confirmar Senha:</label>
+        <div>
+            <InputText placeholder="Digite a senha novamente"class="form-control" @bind-Value="@Formulario.ConfirmarSenha" type = "password"/>
+            <ValidationMessage For="@(() => Formulario.ConfirmarSenha )"/>
+        </div>
+        <label>Aceitar os termos:</label>
+        <div class = "form-group form-check">
+            <InputCheckbox @bind-Value = "Formulario.AceitarTermos" id = "acceptTerms" class = "form-check-input" />
+            <label for = "acceptTerms" class = form-check-label">Accept Terms & Conditions</label>
+            <ValidationMessage For = "@(() =>Formulario.AceitarTermos)"/>
+        </div>
     </div>
     <button class="btn btn-success" type="submit">Salvar</button>
 </EditForm>
@@ -48,5 +64,8 @@
         Console.WriteLine(Formulario.Last_Name);
         Console.WriteLine(Formulario.Data_Nascimento);
         Console.WriteLine(Formulario.Email);
+        Console.WriteLine(Formulario.Senha);
+        Console.WriteLine(Formulario.ConfirmarSenha);
+        Console.WriteLine(Formulario.AceitarTermos);
     }
 }
